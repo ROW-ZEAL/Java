@@ -20,7 +20,6 @@ This is a JavaFX quiz application that focuses on testing your knowledge about M
 4. Receive immediate feedback on your answers.
 5. Keep track of your score as you progress through the quiz.
 
-## Screenshots
 
 
 ## Contributing
