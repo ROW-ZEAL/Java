@@ -14,7 +14,7 @@ This is a JavaFX quiz application that focuses on testing your knowledge about M
 
 ## Usage
 
-1. Launch the application by running `QuizApp.java`.
+1. Launch the application by running `Application.java`.
 2. Choose the category of questions you want to answer: Malaysia, Singapore, or Thailand.
 3. Answer the multiple-choice questions.
 4. Receive immediate feedback on your answers.
