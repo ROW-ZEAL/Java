@@ -1,6 +1,6 @@
 # JavaFX Quiz Application - Malaysia, Singapore, and Thailand
 
-![Quiz App Screenshot](./screenshot.png)
+
 
 ## Overview
 
@@ -22,7 +22,6 @@ This is a JavaFX quiz application that focuses on testing your knowledge about M
 
 ## Screenshots
 
-![Quiz App Screenshot](./screenshot.png)
 
 ## Contributing
 
