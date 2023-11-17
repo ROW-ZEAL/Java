@@ -6,6 +6,7 @@ import com.example.javafxdemo.controller.LoginController;
 import com.example.javafxdemo.controller.RegisterController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import org.kordamp.bootstrapfx.BootstrapFX;
 
@@ -22,7 +23,11 @@ public class Application extends javafx.application.Application {
 
     public void loginScene() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("login-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+//        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Screen screen = Screen.getPrimary();
+        double screenWidth = screen.getBounds().getWidth();
+        double screenHeight = screen.getBounds().getHeight();
+        Scene scene = new Scene(fxmlLoader.load(), screenWidth, screenHeight);
         scene.getStylesheets().add(BootstrapFX.bootstrapFXStylesheet());
         scene.getStylesheets().add(getClass().getResource("css/login.css").toExternalForm());
         stage.setTitle("Login!");
@@ -35,7 +40,11 @@ public class Application extends javafx.application.Application {
 
     public void registerScene() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("register-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 420, 500);
+//        Scene scene = new Scene(fxmlLoader.load(), 420, 500);
+        Screen screen = Screen.getPrimary();
+        double screenWidth = screen.getBounds().getWidth();
+        double screenHeight = screen.getBounds().getHeight();
+        Scene scene = new Scene(fxmlLoader.load(), screenWidth, screenHeight);
         scene.getStylesheets().add(BootstrapFX.bootstrapFXStylesheet());
         scene.getStylesheets().add(getClass().getResource("css/register.css").toExternalForm());
         stage.setTitle("Register!");
@@ -46,9 +55,13 @@ public class Application extends javafx.application.Application {
         registerController.setApplication(this);
     }
 
-    public void showDashboard(String accountName) throws IOException {
+    public void showDashboard(String accountName, String nationality, String address) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("dashboard-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+//        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        Screen screen = Screen.getPrimary();
+        double screenWidth = screen.getBounds().getWidth();
+        double screenHeight = screen.getBounds().getHeight();
+        Scene scene = new Scene(fxmlLoader.load(), screenWidth, screenHeight);
         scene.getStylesheets().add(BootstrapFX.bootstrapFXStylesheet());
         scene.getStylesheets().add(getClass().getResource("css/dashboard.css").toExternalForm());
         stage.setTitle("Dashboard");
@@ -57,9 +70,14 @@ public class Application extends javafx.application.Application {
 
         DashboardController dashboardController = fxmlLoader.getController();
         dashboardController.setAccountName(accountName);
+        dashboardController.setNationality(nationality);
+        dashboardController.setAddressText(address);
     }
 
     public static void main(String[] args) {
         launch();
+    }
+
+    public void showRegisterScene() {
     }
 }

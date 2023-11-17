@@ -33,18 +33,22 @@ public class LoginController {
         String password = userPassword.getText();
         if (validateLogin(email, password)) {
             String accountName = getAccountName(email);
+            String nationality = getNationality(email);
+            String address = getAddress(email);
 
             resultLabel.setText("Login Successful!!");
             resultLabel.getStyleClass().clear();
             resultLabel.getStyleClass().add("login-success");
 
-            application.showDashboard(accountName);
+            application.showDashboard(accountName, nationality,address);
         } else {
             resultLabel.setText("Invalid email or password");
             resultLabel.getStyleClass().clear();
             resultLabel.getStyleClass().add("login-error");
         }
     }
+
+
 
     public boolean validateLogin(String email, String password) {
         String csvPath = "src/main/resources/userData.csv";
@@ -59,6 +63,10 @@ public class LoginController {
             logger.severe("Error reading CSV file: " + e.getMessage());
         }
         return false;
+    }
+
+    public void goToRegisterPage(ActionEvent event) throws IOException {
+        application.registerScene();
     }
 
     public boolean passwordVerification(String storedHash, String password) {
@@ -87,4 +95,40 @@ public class LoginController {
         }
         return accountName;
     }
+    public String getNationality(String email) {
+        String nationality = ""; // Initialize nationality to an empty string
+
+        String csvPath = "src/main/resources/userData.csv";
+        try (CSVReader reader = new CSVReader(new FileReader(csvPath))) {
+            String[] line;
+            while ((line = reader.readNext()) != null) {
+                if (line.length == 7 && line[1].trim().equalsIgnoreCase(email)) {
+                    nationality = line[4].trim(); // Assuming nationality is in the 4th column (index 3)
+                    break;
+                }
+            }
+        } catch (IOException e) {
+            logger.severe("Error reading CSV file: " + e.getMessage());
+        }
+        return nationality;
+    }
+    public String getAddress(String email) {
+        String address = ""; // Initialize nationality to an empty string
+
+        String csvPath = "src/main/resources/userData.csv";
+        try (CSVReader reader = new CSVReader(new FileReader(csvPath))) {
+            String[] line;
+            while ((line = reader.readNext()) != null) {
+                if (line.length == 7 && line[1].trim().equalsIgnoreCase(email)) {
+                    address = line[5].trim(); // Assuming nationality is in the 4th column (index 3)
+                    break;
+                }
+            }
+        } catch (IOException e) {
+            logger.severe("Error reading CSV file: " + e.getMessage());
+        }
+        return address;
+    }
+
+
 }

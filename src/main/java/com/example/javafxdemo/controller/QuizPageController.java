@@ -8,10 +8,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.util.Duration;
+import java.io.FileWriter;
+import java.io.IOException;
+import javafx.application.Platform;
 
 import java.io.File;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -19,6 +21,7 @@ import java.util.List;
 public class QuizPageController {
     @FXML
     private Label questionNumberLabel;
+    private String nationality;
     @FXML
     private Label questionLabel;
     @FXML
@@ -35,6 +38,10 @@ public class QuizPageController {
     private Label correctAnswersLabel;
     @FXML
     private Label incorrectAnswersLabel;
+    @FXML
+    private Label accountNameLabel;
+    @FXML
+    private Label nationalityLabel; // Added Label for displaying nationality
 
     private List<QuizQuestion> quizQuestions = new ArrayList<>();
     private int currentQuestionIndex;
@@ -43,6 +50,14 @@ public class QuizPageController {
 
     private Timeline questionTimer;
 
+     // Added field for storing nationality
+
+    public void setAccountName(String accountName, String nationality, String text) {
+        accountNameLabel.setText(accountName);
+        nationalityLabel.setText(nationality);
+        this.nationality = nationality;
+    }
+
     @FXML
     public void initialize() {
         loadQuizQuestions();
@@ -50,7 +65,11 @@ public class QuizPageController {
         showNextQuestion();
         questionTimer = new Timeline(new KeyFrame(Duration.seconds(2), e -> showNextQuestion()));
         questionTimer.setCycleCount(1);
+        nationalityLabel.setText("Nationality: " + nationality);
+
+        updateAnswerLabels(); // Show initial counts
     }
+
 
     private void loadQuizQuestions() {
         String csvFilePath = "src/main/resources/quiz_question.csv";
@@ -84,8 +103,22 @@ public class QuizPageController {
 
         Collections.shuffle(quizQuestions);
 
-        if (quizQuestions.size() > 20) {
-            quizQuestions = quizQuestions.subList(0, 20);
+        if (quizQuestions.size() > 5) {
+            quizQuestions = quizQuestions.subList(0, 5);
+        }
+    }
+
+    private void saveResult(String accountName, int totalCorrectAnswers) {
+        String csvFilePath = "src/main/resources/results.csv";
+
+        try (FileWriter fileWriter = new FileWriter(csvFilePath, true)) {
+            // Append the result to the CSV file
+            fileWriter.append(accountName)
+                    .append(",")
+                    .append(String.valueOf(totalCorrectAnswers))
+                    .append("\n");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -117,8 +150,11 @@ public class QuizPageController {
             answerButton3.setDisable(true);
             answerButton4.setDisable(true);
 
-            correctAnswersLabel.setText("Correct Answers: " + correctAnswers);
-            incorrectAnswersLabel.setText("Incorrect Answers: " + incorrectAnswers);
+            correctAnswersLabel.setText("" + correctAnswers);
+            incorrectAnswersLabel.setText(" " + incorrectAnswers);
+            saveResult(accountNameLabel.getText(), correctAnswers);
+
+
         }
         currentQuestionIndex++;
     }
@@ -159,6 +195,7 @@ public class QuizPageController {
         }
 
         questionTimer.play();
+        updateAnswerLabels();
     }
 
     public int getCorrectAnswers() {
@@ -167,5 +204,10 @@ public class QuizPageController {
 
     public int getIncorrectAnswers() {
         return incorrectAnswers;
+    }
+    @FXML
+    public void updateAnswerLabels() {
+        correctAnswersLabel.setText( ""+correctAnswers);
+        incorrectAnswersLabel.setText("" + incorrectAnswers);
     }
 }

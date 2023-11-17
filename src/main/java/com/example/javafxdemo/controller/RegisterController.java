@@ -84,4 +84,8 @@ public class RegisterController {
         userAddress.clear();
         userPassword.clear();
     }
+
+    public void login(ActionEvent event) throws IOException {
+        application.loginScene();
+    }
 }

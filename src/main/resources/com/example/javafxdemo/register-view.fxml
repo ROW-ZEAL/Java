@@ -59,5 +59,8 @@
         </HBox>
         <Button fx:id="registerBtn" onAction="#register"
                 styleClass="btn btn-primary hello-btn" text="Register" />
+
+        <Button fx:id="loginButton" onAction="#login"
+                styleClass="btn btn-secondary hello-btn" text="Already have an account? Login" />
     </children>
 </VBox>

@@ -1,43 +1,66 @@
-/* Your CSS file */
+/* VBox styling */
 .main-container {
-    -fx-background-color: #f0f0f0; /* Background color for the container */
-    -fx-padding: 20; /* Add padding for spacing */
+    -fx-background-image: url("https://img.freepik.com/premium-photo/keyboard-coffee-smartphone-notebook-color-background-top-view_1286-776.jpg");
+    -fx-background-size: cover;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-padding: 20;
+    -fx-spacing: 20;
 }
 
+/* Label styling */
 .h2-label {
-    -fx-font-size: 24px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #333; /* Dark gray text color */
+    -fx-font-size: 24;
+    -fx-text-fill: #333;
 }
 
+.label {
+    -fx-font-size: 16;
+    -fx-text-fill: #333;
+}
+
+/* HBox styling */
+.hbox {
+    -fx-alignment: CENTER;
+    -fx-spacing: 10;
+}
+
+/* Label for text fields */
 .input-label {
-    -fx-font-size: 14px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #666; /* Slightly lighter text color */
+    -fx-font-size: 14;
+    -fx-text-fill: #333;
+    -fx-min-width: 100px;
 }
 
+/* Text field styling */
 .input-field {
-    -fx-font-size: 14px;
-    -fx-padding: 5 10; /* Add some padding for input fields */
-    -fx-background-color: #fff; /* White background for input fields */
-    -fx-border-color: #ccc; /* Light gray border color */
-    -fx-border-width: 1;
-    -fx-border-radius: 5;
+    -fx-pref-width: 200px;
 }
 
-.btn {
-    -fx-font-size: 16px;
-    -fx-text-fill: #fff; /* White text color for buttons */
-    -fx-background-color: #007bff; /* Blue background color for buttons */
+/* Password field styling */
+.input-field.password-field {
+    -fx-pref-width: 200px;
 }
 
-.btn:hover {
-    -fx-background-color: #0056b3; /* Darker blue color on hover */
+/* ComboBox styling */
+.input-field.combobox {
+    -fx-pref-width: 200px;
 }
 
+/* Button styling */
 .btn-primary {
-    -fx-background-color: #007bff; /* Blue background color for primary button */
+    -fx-background-color: #0073e6;
+    -fx-text-fill: white;
+    -fx-font-size: 16;
+    -fx-padding: 10 20;
 }
-.error-background {
-    -fx-background-color: red;
+
+.btn-secondary {
+    -fx-background-color: #d3d3d3;
+    -fx-text-fill: #333;
+}
+
+/* Error label styling */
+.error-label {
+    -fx-text-fill: #ff0000;
 }

@@ -1,8 +1,24 @@
-/* quizpage.css */
+.hbox-header {
+    -fx-spacing: 10;
+    -fx-padding: 10;
+}
+
+.account-name-label, .nationality-label, .question-number {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+.account-name-label {
+    -fx-padding: 5px;
+}
+
+.nationality-label {
+    -fx-padding: 5px;
+}
 
 .question-number {
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
+    -fx-padding: 5px;
 }
 
 .quiz-content {
@@ -15,6 +31,15 @@
     -fx-font-size: 18px;
 }
 
+.account-name-label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold; /* Add this line to make the account name bold */
+}
+.nationality-label{
+    -fx-font-size: 18px;
+    -fx-font-weight: bold; /* Add this line to make the account name bold */
+}
+
 .answer-button {
     -fx-font-size: 16px;
     -fx-min-width: 200;
@@ -23,17 +48,17 @@
     -fx-text-fill: white;
 }
 
-.result-label {
+result-label {
     -fx-font-size: 16px;
 }
 
-.correct-answers-label {
+correct-answers-label {
     -fx-font-size: 16px;
     -fx-text-fill: #27ae60;
     -fx-font-weight: bold;
 }
 
-.incorrect-answers-label {
+incorrect-answers-label {
     -fx-font-size: 16px;
     -fx-text-fill: #e74c3c;
     -fx-font-weight: bold;

@@ -1,49 +1,82 @@
-/* Apply styles to the root VBox */
-.dashboard-background {
-    -fx-background-color: #f2f2f2;
-    -fx-padding: 20px;
+/* Header styles */
+.header {
+    -fx-background-color: #333;
+    -fx-padding: 10px;
+    -fx-alignment: CENTER;
 }
 
-/* Style the dashboard header */
 .dashboard-header {
-    -fx-background-color: #3498db;
+    -fx-background-color: #444;
     -fx-padding: 10px;
+    -fx-alignment: CENTER_LEFT;
 }
 
 .account-name-label {
+    -fx-text-fill: #fff;
     -fx-font-size: 16px;
-    -fx-text-fill: white;
 }
 
-/* Style the dashboard title */
-.dashboard-title {
-    -fx-font-size: 24px;
+/* Nationality Label */
+.nationality-label {
+    -fx-text-fill: #fff;
+    -fx-font-size: 14px;
+    -fx-padding: 5px;
 }
 
-/* Style the quiz content */
-.quiz-content {
-    -fx-background-color: #ffffff;
-    -fx-padding: 20px;
+/* Sidebar styles */
+.sidebar {
+    -fx-background-color: #555;
+    -fx-min-width: 200px;
+}
+
+.profile-section {
+    -fx-padding: 10px;
+    -fx-alignment: CENTER;
+}
+
+.profile-section ImageView {
+    -fx-effect: dropshadow(gaussian, #444, 5, 0, 0, 0);
+}
+
+.sidebar-links Button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #fff;
+}
+
+/* Additional styles for other sections can be defined here */
+
+/* Content (Main and Footer) styles */
+.content {
+    -fx-spacing: 10px;
+    -fx-padding: 10px;
+}
+
+.main-content {
     -fx-spacing: 10px;
 }
 
-.welcome-label {
-    -fx-font-size: 18px;
+.footer {
+    -fx-background-color: #444;
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
 }
 
-.quiz-title {
-    -fx-font-size: 20px;
-    -fx-font-weight: bold;
+/* Highlighted label for Notification section */
+.notification-section Label {
+    -fx-background-color: A9A9A9;
+    -fx-text-fill: #333;
+    -fx-padding: 5px;
 }
 
-.play-quiz-button {
-    -fx-background-color: #27ae60;
-    -fx-text-fill: white;
-    -fx-font-size: 16px;
-    -fx-padding: 10px 20px;
-    -fx-border-radius: 5px;
+/* Highlighted label for Leaderboard section */
+.quiz-rules-section {
+    -fx-background-color: A9A9A9;
+    -fx-text-fill: #333;
+    -fx-padding: 5px;
 }
 
-.progress-bar {
-    -fx-background-color: #ecf0f1;
+.dashboard-background {
+    -fx-background-color: #333;
 }
+
+/* Notification and Leaderboard styles can be defined here */
