@@ -13,7 +13,6 @@ import javafx.scene.control.ListView;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
 public class DashboardController {
